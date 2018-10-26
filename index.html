@@ -1,0 +1,33 @@
+<html ng-app="mainApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.14/angular.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+
+<body> 
+
+        <h2>SELECT THE TYPE OF SEARCH</h2>
+     <div>
+        <i>Global search filter:- </i><input type="text" ng-model="globalSearch.$"><br>
+        <i>PostId search filter:- </i><input type="text" ng-model="globalSearch.postId"><br>
+        <i>ID search filter:- </i><input type="text" ng-model="globalSearch.id"><br>
+        <i>Name search filter:- </i><input type="text" ng-model="globalSearch.name"><br>
+        <i>Email search filter:-</i> <input type="text" ng-model="globalSearch.email"><br>
+        <i>Body search filter:- </i><input type="text" ng-model="globalSearch.body"><br>
+
+    </div>
+    
+    <div ng-controller="people">
+        <ul>
+           
+            <li ng-repeat="person in persons | filter: globalSearch">
+                <b>PostId : </b>{{person.postId}}<br><b>ID :</b>{{person.id}}<br><b>Name :</b>{{person.name}}<br><b>Email :</b>{{person.email}}<br><b>Body :</b>{{person.body}}
+            </li>
+          
+        </ul>
+    </div>
+  
+</body>
+
+</html>
